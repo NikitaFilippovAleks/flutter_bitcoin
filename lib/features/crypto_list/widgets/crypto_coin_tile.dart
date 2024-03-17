@@ -1,5 +1,5 @@
-import 'package:bitcoin/features/crypto_coin/crypto_coin.dart';
 import 'package:bitcoin/repositories/crypto_coins/models/crypto_coin.dart';
+import 'package:bitcoin/router/routes.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
 
@@ -35,10 +35,11 @@ class CryptoCoinTile extends StatelessWidget {
         Icons.arrow_forward_ios
       ),
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => CryptoCoinScreen(coinName: coin.name))
-        );
+        CryptoCoinRoute(coinName: coin.name).go(context);
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => CryptoCoinScreen(coinName: coin.name))
+        // );
         // Navigator.of(context).pushNamed(
         //   '/coins',
         //   arguments: coin.name

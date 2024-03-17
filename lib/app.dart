@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 import 'router/routes.dart';
@@ -10,13 +11,17 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final router = GoRouter(
+      routes: $appRoutes,
+      observers: [
+        TalkerRouteObserver(GetIt.I<Talker>())
+      ]
+    );
+
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: darkTheme,
-      routes: routes,
-      navigatorObservers: [
-        TalkerRouteObserver(GetIt.I<Talker>())
-      ],
+      routerConfig: router,
     );
   }
 }
