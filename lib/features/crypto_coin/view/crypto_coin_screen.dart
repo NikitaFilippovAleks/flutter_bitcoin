@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:bitcoin/features/crypto_coin/widgets/widgets.dart';
+import 'package:intl/intl.dart';
 
 class CryptoCoinScreen extends StatefulWidget {
   final String coinName;
@@ -33,7 +34,6 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: RefreshIndicator(
-        // triggerMode: RefreshIndicatorTriggerMode.anywhere,
         onRefresh: () {
           final completer = Completer();
           _cryptoCoin.add(LoadCryptoCoin(currencyCode: widget.coinName, completer: completer));
@@ -52,7 +52,7 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
                       children: [
                         AspectRatio(
                           aspectRatio: 1.7,
-                          child: Image.network(coinDetails.imageUrl),
+                          child: Image.network(coinDetails.fullImageUrl),
                         ),
                         SizedBox(height: 16,),
                         Text(
@@ -69,7 +69,7 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
                             children: [
                               _DataRow(
                                 title: 'Hight 24 Hour',
-                                value: '${coinDetails.hight24Hour.toStringAsFixed(3)} \$',
+                                value: '${coinDetails.high24Hour.toStringAsFixed(3)} \$',
                               ),
                               SizedBox(height: 6,),
                               _DataRow(
@@ -78,6 +78,13 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
                               ),
                             ],
                           )
+                        ),
+                        SizedBox(height: 10,),
+                        DarkCard(
+                          child: _DataRow(
+                            title: 'Last update',
+                            value: DateFormat('dd.MM.y hh:mm:ss').format(coinDetails.lastUpdate),
+                          ),
                         ),
                       ],
                     ),

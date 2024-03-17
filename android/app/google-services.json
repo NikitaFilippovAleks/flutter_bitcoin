@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1013266574607",
+    "project_id": "crypto-list-app-f5198",
+    "storage_bucket": "crypto-list-app-f5198.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013266574607:android:e660f5a252561d2451227a",
+        "android_client_info": {
+          "package_name": "com.example.bitcoin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDm5z3HDCDSw9w2m9sDDeKS3Bkm2pk-Xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
